@@ -1,0 +1,431 @@
+/* =========================================
+   1. VARIABLES & GUÍA DE ESTILO BENTO
+   ========================================= */
+:root {
+    /* Paleta de Colores */
+    --bg-main: #a7adc6;          /* fondo sobrio, no tan genérico como un azul. color tibio. */
+    --bg-card: #8797AF;          /* principio fondo figura: separa el objeto del fondo con un color también sobrio, pero un poco alejado cromáticamente */
+    --color-primary: #2c1320;    /* Texto principal oscuro */
+    --color-accent: #56667A;     /* Azul brillante para acentos */
+    /*--color-accent-dark: #376686;*/
+    --color-text-muted: #000000; /* texto en negro, formal, serio, brillantez, sobriedad */
+    
+    /* Estética Bento */
+    --bento-radius: 28px;        /* Bordes MUY redondeados */
+    --bento-gap: 24px;           /* Espacio entre tarjetas */
+    --bento-shadow: 0 8px 30px rgba(0,0,0,0.04); /* Sombra suave y difusa */
+    --card-border: 1px solid rgba(255, 255, 255, 0.5); /* Borde sutil brillante */
+}
+
+/* =========================================
+   2. RESET GLOBAL
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--color-primary);
+    line-height: 1.5;
+    scroll-behavior: smooth;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+.contenedor {
+    max-width: 1200px; /* Un poco más ancho para el grid */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contenedor-pequeno { max-width: 600px; }
+.punto-acento { color: var(--color-accent); }
+
+
+.header-principal {
+    padding: 15px;
+    /*barra semi transparente */
+    background: rgba(242, 244, 248, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.contenedor-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 700;/*grosor de la fuente*/
+    font-size: 1.5rem;
+    margin:0;
+    justify-content:center;
+}
+
+.header-principal nav ul { /*este es el de inicio y contacto*/
+    display: flex;
+    gap: 40px;
+    margin:0;
+    padding:0;
+    justify-content:flex-end;
+}
+
+.header-principal nav a {
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.header-principal nav a:hover {
+    color: var(--color-accent);
+}
+
+/* =========================================
+   4. BENTO CORE LAYOUT (La parte importante)
+   ========================================= */
+.seccion-bento {
+    padding: 40px 0 80px 0;
+}
+
+/* El contenedor Grid principal */
+.bento-grid {
+    display: grid;
+    /* Definimos 4 columnas flexibles en escritorio */
+    grid-template-columns: repeat(4, 1fr);
+    /* Definimos filas con una altura mínima para consistencia */
+    grid-auto-rows: minmax(180px, auto);
+    gap: var(--bento-gap);
+}
+
+/* Estilos base para CADA tarjeta Bento */
+.bento-card {
+    background-color: var(--bg-card);
+    border-radius: var(--bento-radius);
+    padding: 28px;
+    box-shadow: var(--bento-shadow);
+    border-top: var(--card-border); /* Luz superior sutil */
+    
+    
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Necesario para posicionar imágenes absolutas */
+    overflow: hidden;   /* Para recortar imágenes en las esquinas redondeadas */
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+}
+
+
+/* Efecto Hover elegante */
+.bento-card:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+/* --- Clases de Utilidad para tamaños (Spans) --- */
+.span-2-cols { grid-column: span 2; }
+.span-2-rows { grid-row: span 2; }
+/* Si necesitaras una tarjeta de ancho completo: .span-4-cols { grid-column: span 1 / -1; } */
+
+/* =========================================
+   5. ESTILOS ESPECÍFICOS DE TARJETAS
+   ========================================= */
+
+/* --- Hero Card (Grande Principal) --- */
+.hero-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+    justify-content: center;
+}
+.hero-card h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+.hero-card p {
+    color: var(--color-text-muted);
+    max-width: 80%;
+}
+.hero-img {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%; /* Opcional: si la imagen no es transparente */
+    opacity: 0.9;
+}
+
+/* --- Stack Card (Lista vertical) --- */
+.stack-card h3 { margin-bottom: 20px; }
+.tech-list li {
+    margin-bottom: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-primary);
+}
+.icon { font-size: 1.2rem; }
+
+
+
+/* --- logos --- */
+
+.logo-aog {
+    position:relative;
+     width:2cm;
+     height:2cm;
+    margin-left: 1.7cm;
+    margin-top: 0.5cm;
+}
+
+.logo-madkpop {
+    position:relative;
+     width: 1.7cm;
+     height:1.cm;
+    margin-left: 1.7cm;
+    margin-top: 0.5cm;
+    align-items: center;
+}
+
+.logo-xyz {
+    position:relative;
+     width: 1.7cm;
+     height:1.cm;
+    margin-left: 1.7cm;
+    margin-top: 0.5cm;
+}
+
+/* --- tarjeta linkedin con plot twist --- */
+
+.linkedin-vuelta {
+    padding:0; /*así la foto toca los bordes de la tarjeta*/
+    perspective: 1000px;/*suaviza el giro que hace cuando da la vuelta, siendo efecto 3D*/
+    overflow: visible !important;/*hace que no se corte la tarjeta al girar*/
+}
+
+.interior-tarjeta{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.4s;/*la velocidad del giro*/
+    transform-style: preserve-3d;
+    border-radius: 28px;
+}
+
+.linkedin-vuelta:hover .interior-tarjeta {
+    transform: rotateY(180deg);/*si no tiene esto, no gira. engloba el hover y la tarjeta en sí*/
+}
+
+.frontal, .trasera{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /*corta las esquinas de la imagen*/
+}
+
+.frontal{
+    background-color: #5f4b66;
+    color:black;
+}
+
+.foto-perfil {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.trasera{
+    background-color: #5f4b66;
+    color: white;
+    transform: rotateY(180deg);
+    padding:20px;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* --- Social Cards (Pequeñas) --- */
+.social-card {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: 700;
+    color: white;
+}
+.linkedin { background-color: #5f4b66;
+            grid-row: span ; } /*podría ser el color azul de linkedin y que quedase corporativo, pero rompería con toda la estética de la web*/
+.github { background-color: #333; }
+
+/* --- Project Cards (Con imágenes) --- */
+.project-card {
+    justify-content: space-between;
+    padding: 3px; /* Sin padding para que la imagen toque los bordes */
+}
+.project-card .card-content {
+    padding: 24px;
+    z-index: 2; /* Texto por encima de la imagen */
+    
+}
+.project-card.theme-dark {
+    background-color: var(--color-primary);
+    color: white;
+}
+.project-card.theme-dark p { color: #bdc3c7; }
+
+.project-card h3 { margin: 10px 0; }
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: rgba(0,0,0,0.08);
+}
+.theme-dark .badge { background: rgba(255,255,255,0.15); color: white; }
+
+.project-img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 70%;
+    height: auto;
+    border-top-left-radius: var(--bento-radius);
+    box-shadow: -5px -5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+/* Efecto hover específico para la imagen del proyecto */
+.project-card:hover .project-img {
+    transform: scale(1.05);
+}
+
+/* --- About Card (Texto simple) --- */
+.about-card { justify-content: center; background-color: #eef2f7; }
+.about-card p { color: var(--color-text-muted); }
+
+
+/* =========================================
+   6. SECCIÓN CONTACTO
+   ========================================= */
+.seccion-contacto { padding-bottom: 80px; }
+.contact-form-card { padding: 40px; } /* Más padding interno */
+.titulo-contacto { text-align: center; font-size: 2rem; }
+.subtitulo-contacto { text-align: center; margin-bottom: 30px; color: var(--color-text-muted); }
+
+.grupo-input { margin-bottom: 20px; }
+.grupo-input label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.grupo-input input, .grupo-input textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 16px; /* Inputs redondeados también */
+    background: var(--bg-main);
+    font-family: inherit;
+    transition: border-color 0.3s;
+    outline: none;
+}
+.grupo-input input:focus, .grupo-input textarea:focus {
+    border-color: var(--color-accent);
+}
+
+.btn-bento {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--color-accent);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.btn-bento:hover {
+    background-color: var(--color-accent-dark);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   7. FOOTER
+   ========================================= */
+.footer {
+    text-align: center;
+    padding: 4px;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   8. RESPONSIVE (Crucial para Bento)
+   ========================================= */
+
+/* TABLET (aprox 900px) - Reducimos a 2 columnas */
+@media (max-width: 960px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    /* Reajustar elementos específicos para que se vean bien en 2 columnas */
+    .hero-card h1 { font-size: 2rem; }
+    /* Forzamos a la tarjeta de "Stack" a ocupar 2 columnas en tablet para que no quede muy estirada */
+    .stack-card { grid-column: span 2; flex-direction: row; flex-wrap: wrap; gap: 20px; }
+    .tech-list { display: flex; flex-wrap: wrap; gap: 15px; }
+    .tech-list li { margin-bottom: 0; }
+}
+
+/* MÓVIL (aprox 600px) - Colapsamos todo a 1 columna */
+@media (max-width: 600px) {
+    .bento-grid {
+        grid-template-columns: 1fr; /* Una sola columna */
+        grid-auto-rows: auto; /* Altura automática según el contenido */
+        gap: 16px;
+    }
+
+    /* IMPORTANTE: Reseteamos todos los spans para que en móvil sean bloques normales */
+    .span-2-cols, .span-2-rows {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    /* Ajustes específicos de móvil */
+    .hero-card { padding-bottom: 0; overflow: visible; text-align: center; }
+    .hero-img { 
+        position: relative; 
+        bottom: auto; right: auto; 
+        width: 150px; height: 150px;
+        margin: 20px auto -20px auto; /* Centrada y saliendo un poco por abajo */
+    }
+    .hero-card p { max-width: 100%; }
+    
+    /* Stack card vuelve a vertical en móvil */
+    .stack-card { flex-direction: column; }
+    .tech-list { display: block; }
+    .tech-list li { margin-bottom: 12px; }
+
+    .project-card { min-height: 250px; }
+}
