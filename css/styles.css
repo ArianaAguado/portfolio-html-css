@@ -1,6 +1,25 @@
-/* =========================================
-   1. VARIABLES & GUÍA DE ESTILO BENTO
-   ========================================= */
+/*esto primero es para que haya una transición suave en el cambio de páginas*/
+
+@view-transition{
+    navigation:auto;
+}
+
+body{
+    animation:transicion 0.8s ease-out;
+}
+
+@keyframes transicion{
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/*==========================================================================*/
+
+/* todo esto son las variables. son nombres inventados que se colocan con un -- delante y se aplican a las propiedades
+    de los "." tipo ".header-principal{}"
+    
+    se utiliza :root para alcanzar el padre superior. así que cuando se haga uso de uno de los estilos aquí abajo mencionados, funcionarán porque van al elemento
+    padre superior (o eso entiendo yo, vaya) */
 :root {
     /* Paleta de Colores */
     --bg-main: #a7adc6;          /* fondo sobrio, no tan genérico como un azul. color tibio. */
@@ -16,6 +35,9 @@
     --bento-shadow: 0 8px 30px rgba(0,0,0,0.04); /* Sombra suave y difusa */
     --card-border: 1px solid rgba(255, 255, 255, 0.5); /* Borde sutil brillante */
 }
+
+/*==========================================================================*/
+
 
 /* =========================================
    2. RESET GLOBAL
@@ -300,6 +322,7 @@ img { max-width: 100%; display: block; }
     font-weight: 700;
     text-transform: uppercase;
     background: rgba(0,0,0,0.08);
+    width: fit-content;
 }
 .theme-dark .badge { background: rgba(255,255,255,0.15); color: white; }
 
@@ -428,4 +451,25 @@ img { max-width: 100%; display: block; }
     .tech-list li { margin-bottom: 12px; }
 
     .project-card { min-height: 250px; }
+}
+
+
+/*=====================================================================================*/
+
+/*este css es para la sección sobre mí*/
+
+.seccion-sobre-mi {
+    display:flex;/*esto pone las columnas en fila*/
+    gap:60px;/*espacio entre las dos columnas*/
+    align-items: self-start;/*alinea todo arriba*/
+
+    max-width: 1200px;
+    margin: 0 auto;/*centramos*/
+    padding:80px 40px;/*espacio arriba y abajo 80px, a los lados 40px*/    
+}
+
+.texto-sobre-mi {
+    flex:1;/*ocupa todo el espacio posible*/
+    text-align: left;/*ponemos el texto en la izquierda*/
+    line-height: 1.6;/*interlineado normalito*/
 }
