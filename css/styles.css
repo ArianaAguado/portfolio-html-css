@@ -456,20 +456,3 @@ img { max-width: 100%; display: block; }
 
 /*=====================================================================================*/
 
-/*este css es para la sección sobre mí*/
-
-.seccion-sobre-mi {
-    display:flex;/*esto pone las columnas en fila*/
-    gap:60px;/*espacio entre las dos columnas*/
-    align-items: self-start;/*alinea todo arriba*/
-
-    max-width: 1200px;
-    margin: 0 auto;/*centramos*/
-    padding:80px 40px;/*espacio arriba y abajo 80px, a los lados 40px*/    
-}
-
-.texto-sobre-mi {
-    flex:1;/*ocupa todo el espacio posible*/
-    text-align: left;/*ponemos el texto en la izquierda*/
-    line-height: 1.6;/*interlineado normalito*/
-}
