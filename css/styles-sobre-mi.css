@@ -20,7 +20,8 @@ body{
     --color-primary: #2c1320;    /* Texto principal oscuro */
     --color-accent: #56667A;     /* Azul brillante para acentos */
     /*--color-accent-dark: #376686;*/
-    --color-text-muted: #000000; /* texto en negro, formal, serio, brillantez, sobriedad */
+    --color-text-muted: #000000;
+    --color-text-muted2:white; /* texto en negro, formal, serio, brillantez, sobriedad */
     
     /* Estética Bento */
     --bento-radius: 28px;        /* Bordes MUY redondeados */
@@ -143,3 +144,51 @@ img { max-width: 100%; display: block; }
     color: var(--color-text-muted);
     font-size: 0.9rem;
 }
+
+.bento-card-educacion{
+    background-color: #2c1320;
+    border-radius: var(--bento-radius);
+    padding: 28px;
+    box-shadow: var(--bento-shadow);
+    border-top: var(--card-border); /* Luz superior sutil */
+    color: var(--color-text-muted2);
+    
+    
+    
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Necesario para posicionar imágenes absolutas */
+    overflow: hidden;   /* Para recortar imágenes en las esquinas redondeadas */
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+}
+
+.bento-card-experiencia{
+    background-color: #8797AF;
+    border-radius: var(--bento-radius);
+    padding: 28px;
+    box-shadow: var(--bento-shadow);
+    border-top: var(--card-border); /* Luz superior sutil */
+    color: var(--color-text-muted3);
+    
+    
+    
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Necesario para posicionar imágenes absolutas */
+    overflow: hidden;   /* Para recortar imágenes en las esquinas redondeadas */
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+}
+
+.lado-derecho{
+    display:flex;
+    flex-direction:column-reverse;
+    gap:1rem;
+}
+
+.bento-card-experiencia .lista-experiencia{
+    margin: 0.4rem 0 0 1.25rem;
+    padding:0;
+    /*este último es para el formato de la lista. con el circle queda más limpio*/
+    list-style-type:circle
+}
+
