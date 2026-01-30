@@ -192,3 +192,89 @@ img { max-width: 100%; display: block; }
     list-style-type:circle
 }
 
+
+/* ---ajustes para responsive--- */
+
+/* Asegura que las listas de experiencia muestren viñetas (anula la regla global) */
+.bento-card-experiencia .lista-experiencia,
+.lista-experiencia {
+    list-style: disc outside !important;
+    padding-left: 1.25rem !important;
+    margin-top: 0.4rem !important;
+    display: block !important;
+}
+
+/* Breakpoint medio: tablet / pantallas estrechas */
+@media (max-width: 1000px) {
+    .seccion-sobre-mi {
+        padding: 40px 24px;
+        gap: 30px;
+    }
+
+    .texto-sobre-mi {
+        font-size: 0.98rem;
+    }
+
+    .header-principal nav ul {
+        gap: 20px;
+    }
+}
+
+/* Breakpoint móvil: apilar columnas y ajustar tamaños */
+@media (max-width: 700px) {
+    .seccion-sobre-mi {
+        flex-direction: column;
+        gap: 16px;
+        padding: 24px 16px;
+        align-items: stretch;
+    }
+
+    /* Tarjetas ocupan todo el ancho */
+    .bento-card-sobre-mi,
+    .bento-card-educacion,
+    .bento-card-experiencia {
+        width: 100%;
+        padding: 20px;
+        border-radius: 18px;
+    }
+
+    /* Columna derecha se apila en orden natural */
+    .lado-derecho {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    /* Ajustes del header: logo arriba, nav debajo */
+    .header-principal .contenedor {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 16px;
+    }
+
+    .logo {
+        text-align: center;
+        font-size: 1.15rem;
+        width: 100%;
+    }
+
+    .header-principal nav ul {
+        gap: 12px;
+        justify-content: center;
+    }
+
+    /* Reducir el efecto de borde/sombra en móviles para rendimiento visual */
+    .bento-card-sobre-mi,
+    .bento-card-educacion,
+    .bento-card-experiencia {
+        box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    }
+}
+
+/* Pequeño ajuste para pantallas muy pequeñas */
+@media (max-width: 420px) {
+    .seccion-sobre-mi { padding: 18px 12px; }
+    .texto-sobre-mi { font-size: 0.95rem; }
+    .header-principal nav a { font-size: 0.92rem; }
+}
