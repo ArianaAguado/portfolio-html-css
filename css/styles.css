@@ -49,7 +49,7 @@ body{
 }
 
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Faculty Glyphic', "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--bg-main);
     color: var(--color-primary);
     line-height: 1.5;
@@ -65,6 +65,13 @@ img { max-width: 100%; display: block; }
     margin: 0 auto;
     padding: 0 20px;
 }
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
 
 .contenedor-pequeno { max-width: 600px; }
 .punto-acento { color: var(--color-accent); }
@@ -91,10 +98,12 @@ img { max-width: 100%; display: block; }
 }
 
 .logo {
-    font-weight: 700;/*grosor de la fuente*/
-    font-size: 1.5rem;
-    margin:0;
-    justify-content:center;
+    font-family: 'Playfair Display', 'Segoe UI', Roboto, Helvetica, Arial, serif;
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: 0.2px;
+    color: var(--color-primary);
+    display: inline-block;
 }
 
 .header-principal nav ul { /*este es el de inicio y contacto*/
@@ -315,6 +324,7 @@ img { max-width: 100%; display: block; }
 
 .project-card h3 { margin: 10px 0; }
 .badge {
+    font-family: 'Playfair Display', 'Segoe UI', Roboto, Helvetica, Arial, serif;
     display: inline-block;
     padding: 4px 10px;
     border-radius: 20px;
@@ -376,6 +386,7 @@ img { max-width: 100%; display: block; }
 }
 
 .btn-bento {
+    font-family: 'Playfair Display', 'Segoe UI', Roboto, Helvetica, Arial, serif;
     width: 100%;
     padding: 15px;
     background-color: var(--color-accent);

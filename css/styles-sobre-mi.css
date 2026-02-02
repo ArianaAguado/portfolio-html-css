@@ -38,7 +38,7 @@ body{
 }
 
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Faculty Glyphic', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--bg-main);
     color: var(--color-primary);
     line-height: 1.5;
@@ -194,6 +194,20 @@ img { max-width: 100%; display: block; }
     list-style-type:circle
 }
 
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+body {
+    font-family: 'Faculty Glyphic', "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--color-primary);
+    line-height: 1.5;
+    scroll-behavior: smooth;
+}
+
 
 /* ---ajustes para responsive--- */
 
@@ -280,3 +294,4 @@ img { max-width: 100%; display: block; }
     .texto-sobre-mi { font-size: 0.95rem; }
     .header-principal nav a { font-size: 0.92rem; }
 }
+
