@@ -61,8 +61,9 @@ img { max-width: 100%; display: block; }
 }
 
 .logo {
+    font-family: 'Playfair Display', serif;
     font-weight: 700;/*grosor de la fuente*/
-    font-size: 1.5rem;
+        font-size: 30px;
     margin:0;
     justify-content:center;
 }
@@ -97,6 +98,7 @@ img { max-width: 100%; display: block; }
 }
 
 .header-principal nav a {
+    font-family: 'Faculty Glyphic', serif;
     font-weight: 600;
     font-size: 0.95rem;
     transition: color 0.3s;
@@ -120,8 +122,21 @@ img { max-width: 100%; display: block; }
 
 .texto-sobre-mi {
     flex:1;/*ocupa todo el espacio posible*/
-    text-align: left;/*ponemos el texto en la izquierda*/
+    text-align: justify;/*justificamos el texto por defecto*/
     line-height: 1.6;/*interlineado normalito*/
+}
+
+/* Justificar el texto dentro de la tarjeta 'Sobre mí',
+   las etiquetas <center> seguirán centrando su contenido. */
+.bento-card-sobre-mi p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Asegurar que las etiquetas <center> sigan centrando su contenido */
+.texto-sobre-mi center {
+    display: block;
+    text-align: center;
 }
 
 .bento-card-sobre-mi {
@@ -181,6 +196,20 @@ img { max-width: 100%; display: block; }
     transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
 }
 
+/* Centrar los títulos dentro de las tarjetas Educación y Experiencia */
+.bento-card-educacion h2,
+.bento-card-experiencia h2 {
+    text-align: center;
+}
+
+/* Efecto hover: levantar ligeramente las tarjetas (igual que en la sección Inicio) */
+.bento-card-sobre-mi:hover,
+.bento-card-educacion:hover,
+.bento-card-experiencia:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
 .lado-derecho{
     display:flex;
     flex-direction:column-reverse;
@@ -200,13 +229,6 @@ h1, h2 {
     font-size: 2.5rem;
 }
 
-body {
-    font-family: 'Faculty Glyphic', "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: var(--bg-main);
-    color: var(--color-primary);
-    line-height: 1.5;
-    scroll-behavior: smooth;
-}
 
 
 /* ---ajustes para responsive--- */
