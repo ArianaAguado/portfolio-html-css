@@ -1,0 +1,106 @@
+@view-transition{
+    navigation:auto;
+}
+
+body{
+    animation:transicion 0.8s ease-out;
+}
+
+@keyframes transicion{
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+:root {
+    /* Paleta de Colores */
+    --bg-main: #a7adc6;          /* fondo sobrio, no tan genérico como un azul. color tibio. */
+    --bg-card: #8797AF;          /* principio fondo figura: separa el objeto del fondo con un color también sobrio, pero un poco alejado cromáticamente */
+    --color-primary: #2c1320;    /* Texto principal oscuro */
+    --color-accent: #56667A;     /* Azul brillante para acentos */
+    /*--color-accent-dark: #376686;*/
+    --color-text-muted: #000000;
+    --color-text-muted2:white;
+    --color-text-muted3:#8797AF; /* texto en negro, formal, serio, brillantez, sobriedad */
+    --color-text-muted4:#2c1320;
+    /* Estética Bento */
+    --bento-radius: 28px;        /* Bordes MUY redondeados */
+    --bento-gap: 24px;           /* Espacio entre tarjetas */
+    --bento-shadow: 0 8px 30px rgba(0,0,0,0.04); /* Sombra suave y difusa */
+    --card-border: 1px solid rgba(255, 255, 255, 0.5); /* Borde sutil brillante */
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body {
+    font-family: 'Faculty Glyphic', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--color-primary);
+    line-height: 1.5;
+    scroll-behavior: smooth;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+
+.galeria-fotos{
+    position:absolute;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+}
+
+.header-principal {
+    padding: 15px;
+    /*barra semi transparente */
+    background: rgba(242, 244, 248, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.contenedor-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-principal nav ul { /*este es el de inicio y contacto*/
+    display: flex;
+    gap: 40px;
+    margin:0;
+    padding:0;
+    justify-content:flex-end;
+}
+
+.header-principal nav a {
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.header-principal nav a:hover {
+    color: var(--color-accent);
+}
+
+.contenedor {
+    max-width: 1200px; /* Un poco más ancho para el grid */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;/*grosor de la fuente*/
+        font-size: 30px;
+    margin:0;
+    justify-content:center;
+}
