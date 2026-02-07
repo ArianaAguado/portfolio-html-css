@@ -36,12 +36,9 @@ body{
     --card-border: 1px solid rgba(255, 255, 255, 0.5); /* Borde sutil brillante */
 }
 
-/*==========================================================================*/
-
-
-/* =========================================
-   2. RESET GLOBAL
-   ========================================= */
+/*==========================================================================
+   cabecera con nombre y menú (es el mismo para todos)
+==========================================================================*/
 * {
     margin: 0;
     padding: 0;
@@ -61,7 +58,7 @@ ul { list-style: none; }
 img { max-width: 100%; display: block; }
 
 .contenedor {
-    max-width: 1200px; /* Un poco más ancho para el grid */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -125,55 +122,52 @@ h1, h2, h3, h4 {
 }
 
 /* =========================================
-   4. BENTO CORE LAYOUT (La parte importante)
+   portfolio estilo bento
    ========================================= */
 .seccion-bento {
     padding: 40px 0 80px 0;
 }
 
-/* El contenedor Grid principal */
+/*contenedor principal con grid*/
 .bento-grid {
     display: grid;
-    /* Definimos 4 columnas flexibles en escritorio */
     grid-template-columns: repeat(4, 1fr);
-    /* Definimos filas con una altura mínima para consistencia */
     grid-auto-rows: minmax(180px, auto);
     gap: var(--bento-gap);
 }
 
-/* Estilos base para CADA tarjeta Bento */
+/*estilo base de todas las tarjetas bento*/
 .bento-card {
     background-color: var(--bg-card);
     border-radius: var(--bento-radius);
     padding: 28px;
     box-shadow: var(--bento-shadow);
-    border-top: var(--card-border); /* Luz superior sutil */
+    border-top: var(--card-border);
     
     
     display: flex;
     flex-direction: column;
-    position: relative; /* Necesario para posicionar imágenes absolutas */
-    overflow: hidden;   /* Para recortar imágenes en las esquinas redondeadas */
+    position: relative; /*posicionamiento relativo*/
+    overflow: hidden;   /* recorte de fotos en las esquinas redondeadas, así no queda en pico */
     transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
 }
 
 
-/* Efecto Hover elegante */
+/*hover que eleva las tarjetas cuando pasas el ratón*/
 .bento-card:hover {
     transform: translateY(-5px) scale(1.01);
     box-shadow: 0 15px 35px rgba(0,0,0,0.08);
 }
 
-/* --- Clases de Utilidad para tamaños (Spans) --- */
+
 .span-2-cols { grid-column: span 2; }
 .span-2-rows { grid-row: span 2; }
-/* Si necesitaras una tarjeta de ancho completo: .span-4-cols { grid-column: span 1 / -1; } */
 
 /* =========================================
-   5. ESTILOS ESPECÍFICOS DE TARJETAS
+   estilos concretos para cada tipo de tarjeta
    ========================================= */
 
-/* --- Hero Card (Grande Principal) --- */
+/* tarjeta más grande */
 .hero-card {
     background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
     justify-content: center;
@@ -198,7 +192,7 @@ h1, h2, h3, h4 {
     opacity: 0.9;
 }
 
-/* --- Stack Card (Lista vertical) --- */
+/*listado*/
 .stack-card h3 { margin-bottom: 20px; }
 .tech-list li {
     margin-bottom: 12px;
@@ -212,7 +206,7 @@ h1, h2, h3, h4 {
 
 
 
-/* --- logos --- */
+/*imágenes logos*/
 
 .logo-aog {
     position:relative;
@@ -271,7 +265,7 @@ h1, h2, h3, h4 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow: hidden; /*corta las esquinas de la imagen*/
+    overflow: hidden; /*corta las esquinas de la imagen como antes*/
 }
 
 .frontal{
@@ -294,7 +288,7 @@ h1, h2, h3, h4 {
     font-size: 0.95rem;
 }
 
-/* --- Social Cards (Pequeñas) --- */
+/* social cards para redes */
 .social-card {
     justify-content: center;
     align-items: center;
@@ -306,14 +300,14 @@ h1, h2, h3, h4 {
             grid-row: span ; } /*podría ser el color azul de linkedin y que quedase corporativo, pero rompería con toda la estética de la web*/
 .github { background-color: #333; }
 
-/* --- Project Cards (Con imágenes) --- */
+/* tarjetas para los proyectos */
 .project-card {
     justify-content: space-between;
-    padding: 3px; /* Sin padding para que la imagen toque los bordes */
+    padding: 3px;
 }
 .project-card .card-content {
     padding: 24px;
-    z-index: 2; /* Texto por encima de la imagen */
+    z-index: 2;
     
 }
 .project-card.theme-dark {
@@ -346,18 +340,18 @@ h1, h2, h3, h4 {
     box-shadow: -5px -5px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
 }
-/* Efecto hover específico para la imagen del proyecto */
+
 .project-card:hover .project-img {
     transform: scale(1.05);
 }
 
-/* --- About Card (Texto simple) --- */
+/* tarjeta sobre mí (about)*/
 .about-card { justify-content: center; background-color: #eef2f7; }
 .about-card p { color: var(--color-text-muted); }
 
 
 /* =========================================
-   6. SECCIÓN CONTACTO
+   formulario de contacto
    ========================================= */
 .seccion-contacto { padding-bottom: 80px; }
 .contact-form-card { padding: 40px; } /* Más padding interno */
@@ -404,7 +398,7 @@ h1, h2, h3, h4 {
 }
 
 /* =========================================
-   7. FOOTER
+   footer simple, sin mucho más
    ========================================= */
 .footer {
     text-align: center;
@@ -414,49 +408,42 @@ h1, h2, h3, h4 {
 }
 
 /* =========================================
-   8. RESPONSIVE (Crucial para Bento)
+   responsive design para otros dispositivos
    ========================================= */
 
-/* TABLET (aprox 900px) - Reducimos a 2 columnas */
 @media (max-width: 960px) {
     .bento-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
     
-    /* Reajustar elementos específicos para que se vean bien en 2 columnas */
     .hero-card h1 { font-size: 2rem; }
-    /* Forzamos a la tarjeta de "Stack" a ocupar 2 columnas en tablet para que no quede muy estirada */
     .stack-card { grid-column: span 2; flex-direction: row; flex-wrap: wrap; gap: 20px; }
     .tech-list { display: flex; flex-wrap: wrap; gap: 15px; }
     .tech-list li { margin-bottom: 0; }
 }
 
-/* MÓVIL (aprox 600px) - Colapsamos todo a 1 columna */
 @media (max-width: 600px) {
     .bento-grid {
-        grid-template-columns: 1fr; /* Una sola columna */
-        grid-auto-rows: auto; /* Altura automática según el contenido */
+        grid-template-columns: 1fr; 
+        grid-auto-rows: auto; 
         gap: 16px;
     }
 
-    /* IMPORTANTE: Reseteamos todos los spans para que en móvil sean bloques normales */
     .span-2-cols, .span-2-rows {
         grid-column: auto;
         grid-row: auto;
     }
 
-    /* Ajustes específicos de móvil */
     .hero-card { padding-bottom: 0; overflow: visible; text-align: center; }
     .hero-img { 
         position: relative; 
         bottom: auto; right: auto; 
         width: 150px; height: 150px;
-        margin: 20px auto -20px auto; /* Centrada y saliendo un poco por abajo */
+        margin: 20px auto -20px auto;
     }
     .hero-card p { max-width: 100%; }
     
-    /* Stack card vuelve a vertical en móvil */
     .stack-card { flex-direction: column; }
     .tech-list { display: block; }
     .tech-list li { margin-bottom: 12px; }

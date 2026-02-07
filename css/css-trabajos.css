@@ -1,0 +1,195 @@
+@view-transition{
+    navigation:auto;
+}
+
+body{
+    animation:transicion 0.8s ease-out;
+}
+
+@keyframes transicion{
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+:root {
+    /* Paleta de Colores */
+    --bg-main: #a7adc6;          /* fondo sobrio, no tan genérico como un azul. color tibio. */
+    --bg-card: #8797AF;          /* principio fondo figura: separa el objeto del fondo con un color también sobrio, pero un poco alejado cromáticamente */
+    --color-primary: #2c1320;    /* Texto principal oscuro */
+    --color-accent: #56667A;     /* Azul brillante para acentos */
+    /*--color-accent-dark: #376686;*/
+    --color-text-muted: #000000; /* texto en negro, formal, serio, brillantez, sobriedad */
+    --bento-radius: 28px;       
+    --bento-gap: 24px;          
+    --bento-shadow: 0 8px 30px rgba(0,0,0,0.04);
+    --card-border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Faculty Glyphic', "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--color-primary);
+    line-height: 1.5;
+    scroll-behavior: smooth;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+.contenedor {
+    max-width: 1200px; /* Un poco más ancho para el grid */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+.header-principal {
+    padding: 15px;
+    /*barra semi transparente */
+    background: rgba(242, 244, 248, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.contenedor-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Playfair Display', 'Segoe UI', Roboto, Helvetica, Arial, serif;
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: 0.2px;
+    color: var(--color-primary);
+    display: inline-block;
+}
+
+.header-principal nav ul { /*este es el de inicio y contacto*/
+    display: flex;
+    gap: 40px;
+    margin:0;
+    padding:0;
+    justify-content:flex-end;
+}
+
+.header-principal nav a {
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.header-principal nav a:hover {
+    color: var(--color-accent);
+}
+
+/*carrusel de imágenes de mis trabajos*/
+
+.seccion-galeria {
+    padding: 60px 20px;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carrusel-fotos {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;       
+    padding: 40px 20px;
+    
+    
+}
+
+/* barra de desplazamiento */
+.carrusel-fotos::-webkit-scrollbar {
+    height: 10px;
+}
+
+.carrusel-fotos::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.05);
+    border-radius: 10px;
+}
+
+.carrusel-fotos::-webkit-scrollbar-thumb {
+    background-color: var(--color-accent);
+    border-radius: 10px;
+    border: 2px solid var(--bg-main);
+}
+
+.carrusel-fotos::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-primary);
+}
+
+/*tarjetas*/
+.foto-item {
+
+    flex: 0 0 80%;             
+    max-width: 600px;          
+    scroll-snap-align: center;
+    position: relative;        
+    transition: transform 0.3s ease;
+}
+
+/*efecto*/
+.foto-item:hover {
+    transform: translateY(-10px);
+}
+
+/*las fotos*/
+.foto-item img {
+    width: 100%;
+    height: 340px;             
+    object-fit:cover;         
+    border-radius: 20px;       
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /*sombreado de la caja*/
+    display: block;
+}
+
+/*pie de texto*/
+.pie-foto {
+    margin-top: 15px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #333; /* O el color de texto que uses */
+    opacity: 0.8;
+}
+
+/*responsive*/
+@media (max-width: 768px) {
+    .foto-item {
+        height: auto;
+        flex: 0 0 85%;
+    }
+    
+    .foto-item img {
+        height: 250px;
+    }
+}
+
+.footer {
+    text-align: center;
+    padding: 4px;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin-top: 80px;
+}
