@@ -2,7 +2,7 @@
 
 ### En esta guía de estilos, te explicaré de qué manera he ejecutado todas las ideas para que mi portfolio sea intuitivo, funcional y llamativo.
 
-#
+### Atención! Aconsejable visualizar el portfolio en una ventana aparte (Abre el Live Preview, arrastra la ventana del mismo hasta otra pantalla para verlo en grande, como las pestañas del navegador)
 #
 
 #### Cuando hablamos de crear un portfolio para desarrolladores web, donde la creatividad tiene que reinar por encima de todo, no podemos entregar un producto vacío y sin que encaje con la personalidad del desarrollador. Esto es, el portfolio es una parte donde uno mismo muestra su trabajo, de tal forma que se vea tanto el contenido como una forma concreta de expresarlo.
